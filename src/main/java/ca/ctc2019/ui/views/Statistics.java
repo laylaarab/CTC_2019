@@ -9,6 +9,7 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
@@ -39,11 +40,19 @@ public class Statistics extends ViewFrame {
 	}
 
 	private Component createContent() {
+		Button buttonTest = new Button(
+				"TEST");
+		buttonTest.addClickListener(e -> {
+					Notification.show(
+							"HI", 3000,
+							Notification.Position.TOP_START);
+		}
+		);
 		Component payments = createPayments();
 		Component transactions = createTransactions();
 		Component docs = createDocs();
 
-		FlexBoxLayout content = new FlexBoxLayout(payments, transactions, docs);
+		FlexBoxLayout content = new FlexBoxLayout(buttonTest, payments, transactions, docs);
 		content.setAlignItems(FlexComponent.Alignment.CENTER);
 		content.setFlexDirection(FlexDirection.COLUMN);
 		return content;
