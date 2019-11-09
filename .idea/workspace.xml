@@ -1,12 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90de89e2-2912-4317-81d3-2635e710e1b6" name="Default Changelist" comment="" />
+    <list default="true" id="90de89e2-2912-4317-81d3-2635e710e1b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/DummyData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#22965#22966#0" expanded="true" />
+                <element signature="e#22994#22995#0" expanded="true" />
+                <element signature="e#23044#23045#0" expanded="true" />
+                <element signature="e#23074#23075#0" expanded="true" />
+                <element signature="e#23147#23148#0" expanded="true" />
+                <element signature="e#23177#23178#0" expanded="true" />
+                <element signature="e#23528#23529#0" expanded="true" />
+                <element signature="e#23563#23564#0" expanded="true" />
+                <element signature="e#23811#23812#0" expanded="true" />
+                <element signature="e#23847#23848#0" expanded="true" />
+                <element signature="e#23901#23902#0" expanded="true" />
+                <element signature="e#23936#23937#0" expanded="true" />
+                <element signature="e#24012#24013#0" expanded="true" />
+                <element signature="e#24043#24044#0" expanded="true" />
+                <element signature="e#24243#24244#0" expanded="true" />
+                <element signature="e#24292#24293#0" expanded="true" />
+                <element signature="e#24334#24335#0" expanded="true" />
+                <element signature="e#24357#24358#0" expanded="true" />
+                <element signature="e#24395#24396#0" expanded="true" />
+                <element signature="e#24452#24453#0" expanded="true" />
+                <element signature="e#24488#24489#0" expanded="true" />
+                <element signature="e#24537#24538#0" expanded="true" />
+                <element signature="e#24575#24576#0" expanded="true" />
+                <element signature="e#24634#24635#0" expanded="true" />
+                <element signature="e#24685#24686#0" expanded="true" />
+                <element signature="e#24747#24748#0" expanded="true" />
+                <element signature="e#24800#24801#0" expanded="true" />
+                <element signature="e#24861#24862#0" expanded="true" />
+                <element signature="e#24901#24902#0" expanded="true" />
+                <element signature="e#24962#24963#0" expanded="true" />
+                <element signature="e#25001#25002#0" expanded="true" />
+                <element signature="e#25060#25061#0" expanded="true" />
+                <element signature="e#25383#25384#0" expanded="true" />
+                <element signature="e#25461#25462#0" expanded="true" />
+                <element signature="e#25507#25508#0" expanded="true" />
+                <element signature="e#25548#25549#0" expanded="true" />
+                <element signature="e#25594#25595#0" expanded="true" />
+                <element signature="e#25636#25637#0" expanded="true" />
+                <element signature="e#25689#25690#0" expanded="true" />
+                <element signature="e#25738#25739#0" expanded="true" />
+                <element signature="e#25797#25798#0" expanded="true" />
+                <element signature="e#25850#25851#0" expanded="true" />
+                <element signature="e#25892#25893#0" expanded="true" />
+                <element signature="e#25955#25956#0" expanded="true" />
+                <element signature="e#26156#26157#0" expanded="true" />
+                <element signature="e#26184#26185#0" expanded="true" />
+                <element signature="e#26587#26588#0" expanded="true" />
+                <element signature="e#26616#26617#0" expanded="true" />
+                <element signature="e#26834#26835#0" expanded="true" />
+                <element signature="e#26865#26866#0" expanded="true" />
+                <element signature="e#26928#26929#0" expanded="true" />
+                <element signature="e#26989#26990#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Account.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+              <folding>
+                <element signature="e#359#360#0" expanded="true" />
+                <element signature="e#375#376#0" expanded="true" />
+                <element signature="e#321#322#0" expanded="true" />
+                <element signature="e#342#343#0" expanded="true" />
+                <element signature="e#375#376#0" expanded="true" />
+                <element signature="e#396#397#0" expanded="true" />
+                <element signature="e#425#426#0" expanded="true" />
+                <element signature="e#442#443#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/DatabaseController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#625#634#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/MainLayout.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-34">
+              <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/Statistics.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/ViewFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/Home.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-306">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/Accounts.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/Payments.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/AccountDetails.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -15,6 +188,28 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/util/UIUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Address.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/AccountService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Account.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/DatabaseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Company.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/DummyData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Item.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/IndustrialItem.java" />
+      </list>
+    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -29,12 +224,116 @@
       </list>
     </option>
   </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
+  </component>
   <component name="ProjectId" id="1TOGCj120IE59ZX9hjN3lZEyFgT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CTC_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CTC_2019" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CTC_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CTC_2019" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CTC_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CTC_2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CTC_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CTC_2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CTC_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CTC_2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CTC_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CTC_2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ctc2019" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CTC_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CTC_2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ctc2019" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CTC_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CTC_2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ctc2019" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CTC_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CTC_2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ctc2019" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CTC_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CTC_2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CTC_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CTC_2019" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573332143301" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -60,15 +359,81 @@
       <updated>1573323602086</updated>
       <workItem from="1573323605660" duration="43000" />
       <workItem from="1573323872176" duration="542000" />
+      <workItem from="1573324471633" duration="7636000" />
     </task>
+    <task id="LOCAL-00001" summary="Added company, address, and account entities.">
+      <created>1573326653929</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1573326653929</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added DatabaseController">
+      <created>1573329957507</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573329957507</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added Industrial Item for when Companies Post Items">
+      <created>1573331639264</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573331639264</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="7636000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="Capture Tool" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Web" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16979866" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" weight="0.3286119" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Bean Validation" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Added company, address, and account entities." />
+    <MESSAGE value="Added DatabaseController" />
+    <MESSAGE value="Added Industrial Item for when Companies Post Items" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Industrial Item for when Companies Post Items" />
   </component>
   <component name="com.vaadin.designer2.intellij.settings.SizePresetsSettingsComponent">
     <option name="sizePresets">
@@ -90,5 +455,394 @@
         </SizePreset>
       </list>
     </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/util/UIUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3910">
+          <caret line="283" column="65" selection-start-line="283" selection-start-column="65" selection-end-line="283" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/swipe-away.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Report.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Invoice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/banner.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Address.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/AccountService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/BankAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="601">
+          <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+          <folding>
+            <element signature="e#714#715#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#764#765#0" expanded="true" />
+            <element signature="e#784#785#0" expanded="true" />
+            <element signature="e#812#813#0" expanded="true" />
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#862#863#0" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="92" selection-start-line="1" selection-start-column="92" selection-end-line="1" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/simplelogger.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/IndustrialItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#455#456#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
+            <element signature="e#529#530#0" expanded="true" />
+            <element signature="e#672#673#0" expanded="true" />
+            <element signature="e#697#698#0" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#1126#1127#0" expanded="true" />
+            <element signature="e#1144#1145#0" expanded="true" />
+            <element signature="e#1172#1173#0" expanded="true" />
+            <element signature="e#1190#1191#0" expanded="true" />
+            <element signature="e#1218#1219#0" expanded="true" />
+            <element signature="e#1236#1237#0" expanded="true" />
+            <element signature="e#1265#1266#0" expanded="true" />
+            <element signature="e#1284#1285#0" expanded="true" />
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1337#1338#0" expanded="true" />
+            <element signature="e#1366#1367#0" expanded="true" />
+            <element signature="e#1388#1389#0" expanded="true" />
+            <element signature="e#1442#1443#0" expanded="true" />
+            <element signature="e#1462#1463#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="27" column="14" lean-forward="true" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+          <folding>
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#388#389#0" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="e#437#438#0" expanded="true" />
+            <element signature="e#748#749#0" expanded="true" />
+            <element signature="e#770#771#0" expanded="true" />
+            <element signature="e#798#799#0" expanded="true" />
+            <element signature="e#816#817#0" expanded="true" />
+            <element signature="e#844#845#0" expanded="true" />
+            <element signature="e#862#863#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
+            <element signature="e#910#911#0" expanded="true" />
+            <element signature="e#940#941#0" expanded="true" />
+            <element signature="e#960#961#0" expanded="true" />
+            <element signature="e#986#987#0" expanded="true" />
+            <element signature="e#1005#1006#0" expanded="true" />
+            <element signature="e#1030#1031#0" expanded="true" />
+            <element signature="e#1048#1049#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/DummyData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#22965#22966#0" expanded="true" />
+            <element signature="e#22994#22995#0" expanded="true" />
+            <element signature="e#23044#23045#0" expanded="true" />
+            <element signature="e#23074#23075#0" expanded="true" />
+            <element signature="e#23147#23148#0" expanded="true" />
+            <element signature="e#23177#23178#0" expanded="true" />
+            <element signature="e#23528#23529#0" expanded="true" />
+            <element signature="e#23563#23564#0" expanded="true" />
+            <element signature="e#23811#23812#0" expanded="true" />
+            <element signature="e#23847#23848#0" expanded="true" />
+            <element signature="e#23901#23902#0" expanded="true" />
+            <element signature="e#23936#23937#0" expanded="true" />
+            <element signature="e#24012#24013#0" expanded="true" />
+            <element signature="e#24043#24044#0" expanded="true" />
+            <element signature="e#24243#24244#0" expanded="true" />
+            <element signature="e#24292#24293#0" expanded="true" />
+            <element signature="e#24334#24335#0" expanded="true" />
+            <element signature="e#24357#24358#0" expanded="true" />
+            <element signature="e#24395#24396#0" expanded="true" />
+            <element signature="e#24452#24453#0" expanded="true" />
+            <element signature="e#24488#24489#0" expanded="true" />
+            <element signature="e#24537#24538#0" expanded="true" />
+            <element signature="e#24575#24576#0" expanded="true" />
+            <element signature="e#24634#24635#0" expanded="true" />
+            <element signature="e#24685#24686#0" expanded="true" />
+            <element signature="e#24747#24748#0" expanded="true" />
+            <element signature="e#24800#24801#0" expanded="true" />
+            <element signature="e#24861#24862#0" expanded="true" />
+            <element signature="e#24901#24902#0" expanded="true" />
+            <element signature="e#24962#24963#0" expanded="true" />
+            <element signature="e#25001#25002#0" expanded="true" />
+            <element signature="e#25060#25061#0" expanded="true" />
+            <element signature="e#25383#25384#0" expanded="true" />
+            <element signature="e#25461#25462#0" expanded="true" />
+            <element signature="e#25507#25508#0" expanded="true" />
+            <element signature="e#25548#25549#0" expanded="true" />
+            <element signature="e#25594#25595#0" expanded="true" />
+            <element signature="e#25636#25637#0" expanded="true" />
+            <element signature="e#25689#25690#0" expanded="true" />
+            <element signature="e#25738#25739#0" expanded="true" />
+            <element signature="e#25797#25798#0" expanded="true" />
+            <element signature="e#25850#25851#0" expanded="true" />
+            <element signature="e#25892#25893#0" expanded="true" />
+            <element signature="e#25955#25956#0" expanded="true" />
+            <element signature="e#26156#26157#0" expanded="true" />
+            <element signature="e#26184#26185#0" expanded="true" />
+            <element signature="e#26587#26588#0" expanded="true" />
+            <element signature="e#26616#26617#0" expanded="true" />
+            <element signature="e#26834#26835#0" expanded="true" />
+            <element signature="e#26865#26866#0" expanded="true" />
+            <element signature="e#26928#26929#0" expanded="true" />
+            <element signature="e#26989#26990#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding>
+            <element signature="e#359#360#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#321#322#0" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#396#397#0" expanded="true" />
+            <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#442#443#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/MainLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/Home.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/AccountDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/Payments.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/ViewFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/Accounts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/Statistics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/DatabaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#625#634#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>CTC_2019:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>GWT</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>mysql-connector-java-8.0.15</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>CTC_2019</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: cglib:cglib-nodep:2.2.2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
