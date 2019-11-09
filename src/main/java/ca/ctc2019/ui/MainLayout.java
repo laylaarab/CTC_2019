@@ -1,5 +1,7 @@
 package ca.ctc2019.ui;
 
+import ca.ctc2019.backend.LoginController;
+import ca.ctc2019.ui.views.*;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasElement;
 import com.vaadin.flow.component.UI;
@@ -7,6 +9,7 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.login.LoginForm;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.page.Viewport;
 import com.vaadin.flow.router.AfterNavigationEvent;
@@ -23,10 +26,6 @@ import ca.ctc2019.ui.components.navigation.drawer.NaviMenu;
 import ca.ctc2019.ui.util.UIUtils;
 import ca.ctc2019.ui.util.css.FlexDirection;
 import ca.ctc2019.ui.util.css.Overflow;
-import ca.ctc2019.ui.views.Accounts;
-import ca.ctc2019.ui.views.Home;
-import ca.ctc2019.ui.views.Payments;
-import ca.ctc2019.ui.views.Statistics;
 import ca.ctc2019.ui.views.personnel.Accountants;
 import ca.ctc2019.ui.views.personnel.Managers;
 import org.slf4j.Logger;
@@ -82,6 +81,12 @@ public class MainLayout extends FlexBoxLayout
 		setFlexDirection(FlexDirection.COLUMN);
 		setSizeFull();
 
+		initLogin();
+
+
+	}
+
+	private void initLogin() {
 		// Initialise the UI building blocks
 		initStructure();
 
@@ -90,6 +95,7 @@ public class MainLayout extends FlexBoxLayout
 
 		// Configure the headers and footers (optional)
 		initHeadersAndFooters();
+
 	}
 
 	/**
@@ -121,15 +127,22 @@ public class MainLayout extends FlexBoxLayout
 	 */
 	private void initNaviItems() {
 		NaviMenu menu = naviDrawer.getMenu();
-		menu.addNaviItem(VaadinIcon.HOME, "Home", Home.class);
-		menu.addNaviItem(VaadinIcon.INSTITUTION, "Accounts", Accounts.class);
-		menu.addNaviItem(VaadinIcon.CREDIT_CARD, "Payments", Payments.class);
-		menu.addNaviItem(VaadinIcon.CHART, "Statistics", Statistics.class);
+		LoginController loginController = LoginController.getInstance();
 
-		NaviItem personnel = menu.addNaviItem(VaadinIcon.USERS, "Personnel",
-				null);
-		menu.addNaviItem(personnel, "Accountants", Accountants.class);
-		menu.addNaviItem(personnel, "Managers", Managers.class);
+		if(loginController.isLoggedIn()) {
+			menu.addNaviItem(VaadinIcon.HOME, "Home", Home.class);
+			menu.addNaviItem(VaadinIcon.INSTITUTION, "Accounts", Accounts.class);
+			menu.addNaviItem(VaadinIcon.CREDIT_CARD, "Payments", Payments.class);
+			menu.addNaviItem(VaadinIcon.CHART, "Statistics", Statistics.class);
+
+			NaviItem personnel = menu.addNaviItem(VaadinIcon.USERS, "Personnel",
+					null);
+			menu.addNaviItem(personnel, "Accountants", Accountants.class);
+			menu.addNaviItem(personnel, "Managers", Managers.class);
+		} else {
+			menu.addNaviItem(VaadinIcon.INSTITUTION, "Login", Login.class);
+		}
+
 	}
 
 	/**
