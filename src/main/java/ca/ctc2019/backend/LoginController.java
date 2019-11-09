@@ -26,13 +26,16 @@ public class LoginController {
         return instance;
     }
 
-    public Boolean loginUser(AbstractLogin.LoginEvent e) {
-//        TODO actually login
-        accountType = AccountType.COMPANY;
-        loggedIn = true;
-         return true;
+    public Boolean loginUser(AbstractLogin.LoginEvent e) throws SQLException {
+        account = DatabaseController.getInstance().authenticateAccount(e.getUsername(), e.getPassword());
+        if (account != null) {
+            loggedIn = true;
+        } else {
+            loggedIn = false;
+        }
+        return loggedIn;
     }
-
+    
     public void logOut() {
         accountType = null;
         loggedIn = false;
