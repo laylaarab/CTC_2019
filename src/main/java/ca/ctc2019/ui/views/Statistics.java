@@ -1,5 +1,6 @@
 package ca.ctc2019.ui.views;
 
+import ca.ctc2019.backend.*;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.board.Row;
 import com.vaadin.flow.component.button.Button;
@@ -27,6 +28,8 @@ import ca.ctc2019.ui.util.*;
 import ca.ctc2019.ui.util.css.Position;
 import ca.ctc2019.ui.util.css.*;
 
+import java.util.ArrayList;
+
 @CssImport("./styles/views/statistics.css")
 @PageTitle("Statistics")
 @Route(value = "statistics", layout = MainLayout.class)
@@ -43,9 +46,10 @@ public class Statistics extends ViewFrame {
 		Button buttonTest = new Button(
 				"TEST");
 		buttonTest.addClickListener(e -> {
-					Notification.show(
-							"HI", 3000,
-							Notification.Position.TOP_START);
+					ArrayList<IndustrialItem> test = DatabaseController.getInstance().itemListFromDataBase();
+					for(IndustrialItem i: test){
+						Notification.show(i.getName());
+					}
 		}
 		);
 		Component payments = createPayments();

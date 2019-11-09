@@ -7,24 +7,60 @@ public class DatabaseController {
 	private Connection dataCon;
 	private Statement statement;
 	private ResultSet resultSet;
+	private static DatabaseController instance;
 
-	public DatabaseController () {
+	private DatabaseController () {
 		try {
-			dataCon = DriverManager.getConnection("jdbc:mysql://dump-sump.cotysnks4blq.us-west-2.rds.amazonaws.com:3306/sys", "admin", "rootroot");
+			//dataCon = DriverManager.getConnection("jdbc:mysql://dump-sump.cotysnks4blq.us-west-2.rds.amazonaws.com:3306", "admin", "rootroot");
+			dataCon = DriverManager.getConnection("jdbc:mysql://dump-sump.cotysnks4blq.us-west-2.rds.amazonaws.com:3306/sys?user=admin&password=rootroot");
 		}catch (java.sql.SQLException e){
 			System.err.println("Error connecting to the database");
 			System.err.println(e.getMessage());
 		}
 	}
 
-	protected synchronized ArrayList<Account> accountListFromDataBase (){
+	public static DatabaseController getInstance()
+	{
+		if (instance == null)
+			instance = new DatabaseController();
+		return instance;
+	}
+
+	public synchronized ArrayList<Account> accountListFromDataBase (){
 		ArrayList<Account> temp = new ArrayList<Account>();
 		try {
 			statement = dataCon.createStatement();
-			ResultSet rs =  statement.executeQuery("SELECT * FROM dump-sump.account");
+			ResultSet rs =  statement.executeQuery("SELECT * FROM Account");
 			while (rs.next()){
-				Account tempItem = new Account(rs.getInt("id"), rs.getString("type"), rs.getString("username"),
+				Account tempItem = new Account(rs.getInt("account_ID"), rs.getString("type"), rs.getString("username"),
 						rs.getString("password"));
+				temp.add(tempItem);
+			}
+		} catch (java.sql.SQLException e){
+			System.err.println("Error while trying to get the list of items from the server");
+			e.printStackTrace();
+		}
+		return temp;
+	}
+
+	public synchronized ArrayList<IndustrialItem> itemListFromDataBase (){
+		ArrayList<IndustrialItem> temp = new ArrayList<IndustrialItem>();
+		try {
+			statement = dataCon.createStatement();
+			ResultSet rs =  statement.executeQuery("SELECT * FROM Item");
+			while (rs.next()){
+				statement = dataCon.createStatement();
+				ResultSet cs =  statement.executeQuery("SELECT * FROM Company WHERE company_ID =" + rs.getInt("company_ID"));
+				Company tempComp = null;
+				Address tempAddress;
+				while (cs.next()){
+					statement = dataCon.createStatement();
+					ResultSet as =  statement.executeQuery("SELECT * FROM Address WHERE address_ID =" + cs.getInt("address_ID"));
+					tempAddress = new Address(as.getString("streetno"), as.getString("city"), as.getString("state"), as.getString("postalcode"));
+					tempComp = new Company(cs.getString("name"), tempAddress, cs.getString("email"), null);
+				}
+				IndustrialItem tempItem = new IndustrialItem(IndustrialItem.Type.valueOf(rs.getString("type")), rs.getString("name"), rs.getString("description"),
+						tempComp, rs.getDouble("price"), rs.getInt("quantity"), IndustrialItem.Status.valueOf(rs.getString("status")));
 				temp.add(tempItem);
 			}
 		}catch (java.sql.SQLException e){
@@ -34,13 +70,13 @@ public class DatabaseController {
 		return temp;
 	}
 
-	protected synchronized void addItem (Account temp){
+	protected synchronized void addAccount (Account temp){
 		try {
-			String overrideQuerry = "SELECT * FROM account WHERE id =" + temp.getId();
+			String overrideQuerry = "SELECT * FROM account WHERE account_ID =" + temp.getId();
 			statement = dataCon.createStatement();
 			resultSet = statement.executeQuery(overrideQuerry);
 			if (resultSet.next()) {
-				String updateQuerry = "UPDATE account SET id = ?, type = ?, username = ?, password = ? WHERE id = ? ";
+				String updateQuerry = "UPDATE account SET account_ID = ?, type = ?, username = ?, password = ? WHERE account_ID = ? ";
 				PreparedStatement pStat = dataCon.prepareStatement(updateQuerry);
 				pStat.setInt(1, temp.getId());
 				pStat.setString(2, temp.getType());
@@ -55,7 +91,6 @@ public class DatabaseController {
 			System.err.println("Error adding items into the database");
 			e.printStackTrace();
 		}
-
 	}
 
 	/**
@@ -64,7 +99,7 @@ public class DatabaseController {
 	 */
 	private synchronized void insertAccount(Account temp ){
 		try {
-			String insertQuery = "INSERT items (id, type, username, password) VALUES (?,?,?,?)";
+			String insertQuery = "INSERT items (account_ID, type, username, password) VALUES (?,?,?,?)";
 			PreparedStatement pStat = dataCon.prepareStatement(insertQuery);
 			pStat.setInt(1, temp.getId());
 			pStat.setString(2, temp.getType());
@@ -91,6 +126,22 @@ public class DatabaseController {
 			System.err.println("Error removing an item from the database, Already removed?");
 			e.printStackTrace();
 		}
+	}
+
+	protected Account authenticateAccount(String username, String password) {
+		String query = "SELECT * FROM Account WHERE Account.username = ? AND Account.password = ?";
+		try {
+			PreparedStatement pStat = dataCon.prepareStatement(query);
+			pStat.setString(1, username);
+			pStat.setString(2, password);
+			ResultSet result = pStat.executeQuery();
+			result.beforeFirst();
+			result.next();
+			return new Account(result.getInt("account_ID"), result.getString("type"), result.getString("username"), result.getString("password"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

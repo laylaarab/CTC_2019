@@ -12,30 +12,35 @@ public class LoginController {
     private static LoginController instance;
     private AccountType accountType;
     private Boolean loggedIn;
+    private Account account;
 
     private LoginController() {
         accountType = null;
         loggedIn = false;
+        account = null;
     }
 
 //    create login
-    public static LoginController getInstance()
-    {
+    public static LoginController getInstance() {
         if (instance == null)
             instance = new LoginController();
         return instance;
     }
 
     public Boolean loginUser(AbstractLogin.LoginEvent e) {
-//        TODO actually login
-        accountType = AccountType.COMPANY;
-        loggedIn = true;
-         return true;
+        account = DatabaseController.getInstance().authenticateAccount(e.getUsername(), e.getPassword());
+        if (account != null) {
+            loggedIn = true;
+        } else {
+            loggedIn = false;
+        }
+        return loggedIn;
     }
 
     public void logOut() {
         accountType = null;
         loggedIn = false;
+        account = null;
     }
     public AccountType getAccountType() {
         return accountType;
