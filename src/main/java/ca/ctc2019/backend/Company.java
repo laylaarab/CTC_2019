@@ -36,4 +36,8 @@ public class Company {
 	public Account getAccount(){
 		return account;
 	}
+
+	public String toString() {
+		return name;
+	}
 }

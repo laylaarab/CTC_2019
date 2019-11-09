@@ -42,8 +42,8 @@ public class LoginController {
         loggedIn = false;
         account = null;
     }
-    public AccountType getAccountType() {
-        return accountType;
+    public String getAccountType() {
+        return account.getType();
     }
     public Boolean isLoggedIn() {
         return loggedIn;
