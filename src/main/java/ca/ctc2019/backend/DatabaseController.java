@@ -7,14 +7,22 @@ public class DatabaseController {
 	private Connection dataCon;
 	private Statement statement;
 	private ResultSet resultSet;
+	private static DatabaseController instance;
 
-	public DatabaseController () {
+	private DatabaseController () {
 		try {
 			dataCon = DriverManager.getConnection("jdbc:mysql://dump-sump.cotysnks4blq.us-west-2.rds.amazonaws.com:3306/sys", "admin", "rootroot");
 		}catch (java.sql.SQLException e){
 			System.err.println("Error connecting to the database");
 			System.err.println(e.getMessage());
 		}
+	}
+
+	public static DatabaseController getInstance()
+	{
+		if (instance == null)
+			instance = new DatabaseController();
+		return instance;
 	}
 
 	protected synchronized ArrayList<Account> accountListFromDataBase (){
