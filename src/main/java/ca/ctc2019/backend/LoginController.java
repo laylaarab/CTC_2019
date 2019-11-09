@@ -2,7 +2,6 @@ package ca.ctc2019.backend;
 
 import com.vaadin.flow.component.login.AbstractLogin;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 //Class to emulate login control
@@ -33,12 +32,12 @@ public class LoginController {
 
     public Boolean loginUser(AbstractLogin.LoginEvent e) throws SQLException {
         accountType = AccountType.COMPANY;
-        ResultSet response = DatabaseController.getInstance().authenticateAccount(e.getUsername(), e.getPassword());
-        if (response != null) {
-            account = new Account(response.getInt("account_ID"), response.getString("type"), e.getUsername(), e.getPassword());
+        account = DatabaseController.getInstance().authenticateAccount(e.getUsername(), e.getPassword());
+        if (account != null) {
             loggedIn = true;
+        } else {
+            loggedIn = false;
         }
-        else loggedIn = false;
         return loggedIn;
     }
 
