@@ -1,5 +1,13 @@
 package ca.ctc2019.ui.components.navigation.bar;
 
+import ca.ctc2019.backend.LoginController;
+import ca.ctc2019.ui.MainLayout;
+import ca.ctc2019.ui.components.FlexBoxLayout;
+import ca.ctc2019.ui.components.navigation.tab.NaviTab;
+import ca.ctc2019.ui.components.navigation.tab.NaviTabs;
+import ca.ctc2019.ui.util.LumoStyles;
+import ca.ctc2019.ui.util.UIUtils;
+import ca.ctc2019.ui.views.Home;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.HasValue;
@@ -17,13 +25,6 @@ import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.shared.Registration;
-import ca.ctc2019.ui.MainLayout;
-import ca.ctc2019.ui.components.FlexBoxLayout;
-import ca.ctc2019.ui.components.navigation.tab.NaviTab;
-import ca.ctc2019.ui.components.navigation.tab.NaviTabs;
-import ca.ctc2019.ui.util.LumoStyles;
-import ca.ctc2019.ui.util.UIUtils;
-import ca.ctc2019.ui.views.Home;
 
 import java.util.ArrayList;
 
@@ -119,8 +120,11 @@ public class AppBar extends FlexBoxLayout {
 				e -> Notification.show("Not implemented yet.", 3000,
 						Notification.Position.BOTTOM_CENTER));
 		contextMenu.addItem("Log Out",
-				e -> Notification.show("Not implemented yet.", 3000,
-						Notification.Position.BOTTOM_CENTER));
+				e -> {
+					LoginController.getInstance().logOut();
+					Notification.show("Logged out", 3000, Notification.Position.BOTTOM_CENTER);
+					contextMenu.getUI().ifPresent(ui -> ui.getPage().reload());
+				});
 	}
 
 	private void initActionItems() {
