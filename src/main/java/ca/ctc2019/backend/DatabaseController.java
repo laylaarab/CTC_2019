@@ -101,13 +101,18 @@ public class DatabaseController {
 		}
 	}
 
-	protected Account authenticateAccount(String username, String password) throws SQLException {
+	protected Account authenticateAccount(String username, String password) {
 		String query = "SELECT * FROM ACCOUNT WHERE ACCOUNT.username = ? AND ACCOUNT.password = ?";
-		PreparedStatement pStat = dataCon.prepareStatement(query);
-		pStat.setString(1, username);
-		pStat.setString(2, password);
-		ResultSet result = pStat.executeQuery();
-		return new Account(result.getInt("account_ID"), result.getString("type"), result.getString("username"), result.getString("password"));
+		try {
+			PreparedStatement pStat = dataCon.prepareStatement(query);
+			pStat.setString(1, username);
+			pStat.setString(2, password);
+			ResultSet result = pStat.executeQuery();
+			return new Account(result.getInt("account_ID"), result.getString("type"), result.getString("username"), result.getString("password"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
