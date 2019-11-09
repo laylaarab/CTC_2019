@@ -3,6 +3,7 @@ package ca.ctc2019.ui;
 import ca.ctc2019.backend.LoginController;
 import ca.ctc2019.ui.views.*;
 import ca.ctc2019.ui.views.company.ListedItems;
+import ca.ctc2019.ui.views.person.SearchItems;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasElement;
 import com.vaadin.flow.component.UI;
@@ -143,7 +144,7 @@ public class MainLayout extends FlexBoxLayout
 				menu.addNaviItem(personnel, "Accountants", Accountants.class);
 				menu.addNaviItem(personnel, "Managers", Managers.class);
 			} else if(loginController.getAccountType().equals("person")) {
-
+				menu.addNaviItem(VaadinIcon.CHART_GRID, "Search Items", SearchItems.class);
 			}
 
 
