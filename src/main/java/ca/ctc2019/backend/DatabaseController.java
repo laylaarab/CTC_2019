@@ -11,7 +11,8 @@ public class DatabaseController {
 
 	private DatabaseController () {
 		try {
-			dataCon = DriverManager.getConnection("jdbc:mysql://dump-sump.cotysnks4blq.us-west-2.rds.amazonaws.com:3306/sys", "admin", "rootroot");
+			//dataCon = DriverManager.getConnection("jdbc:mysql://dump-sump.cotysnks4blq.us-west-2.rds.amazonaws.com:3306", "admin", "rootroot");
+			dataCon = DriverManager.getConnection("jdbc:mysql://dump-sump.cotysnks4blq.us-west-2.rds.amazonaws.com:3306/sys?user=admin&password=rootroot");
 		}catch (java.sql.SQLException e){
 			System.err.println("Error connecting to the database");
 			System.err.println(e.getMessage());
@@ -25,13 +26,13 @@ public class DatabaseController {
 		return instance;
 	}
 
-	protected synchronized ArrayList<Account> accountListFromDataBase (){
+	public synchronized ArrayList<Account> accountListFromDataBase (){
 		ArrayList<Account> temp = new ArrayList<Account>();
 		try {
 			statement = dataCon.createStatement();
-			ResultSet rs =  statement.executeQuery("SELECT * FROM dump-sump.account");
+			ResultSet rs =  statement.executeQuery("SELECT * FROM Account");
 			while (rs.next()){
-				Account tempItem = new Account(rs.getInt("id"), rs.getString("type"), rs.getString("username"),
+				Account tempItem = new Account(rs.getInt("account_ID"), rs.getString("type"), rs.getString("username"),
 						rs.getString("password"));
 				temp.add(tempItem);
 			}
@@ -44,11 +45,11 @@ public class DatabaseController {
 
 	protected synchronized void addItem (Account temp){
 		try {
-			String overrideQuerry = "SELECT * FROM account WHERE id =" + temp.getId();
+			String overrideQuerry = "SELECT * FROM account WHERE account_ID =" + temp.getId();
 			statement = dataCon.createStatement();
 			resultSet = statement.executeQuery(overrideQuerry);
 			if (resultSet.next()) {
-				String updateQuerry = "UPDATE account SET id = ?, type = ?, username = ?, password = ? WHERE id = ? ";
+				String updateQuerry = "UPDATE account SET account_ID = ?, type = ?, username = ?, password = ? WHERE account_ID = ? ";
 				PreparedStatement pStat = dataCon.prepareStatement(updateQuerry);
 				pStat.setInt(1, temp.getId());
 				pStat.setString(2, temp.getType());
@@ -72,7 +73,7 @@ public class DatabaseController {
 	 */
 	private synchronized void insertAccount(Account temp ){
 		try {
-			String insertQuery = "INSERT items (id, type, username, password) VALUES (?,?,?,?)";
+			String insertQuery = "INSERT items (account_ID, type, username, password) VALUES (?,?,?,?)";
 			PreparedStatement pStat = dataCon.prepareStatement(insertQuery);
 			pStat.setInt(1, temp.getId());
 			pStat.setString(2, temp.getType());
