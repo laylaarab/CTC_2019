@@ -49,14 +49,16 @@ public class DatabaseController {
 			statement = dataCon.createStatement();
 			ResultSet rs =  statement.executeQuery("SELECT * FROM Item");
 			while (rs.next()){
-				statement = dataCon.createStatement();
-				ResultSet cs =  statement.executeQuery("SELECT * FROM Company WHERE company_ID =" + rs.getInt("company_ID"));
+				Statement newSt = dataCon.createStatement();
+				ResultSet cs =  newSt.executeQuery("SELECT * FROM Company WHERE company_ID =" + rs.getInt("company_ID"));
 				Company tempComp = null;
-				Address tempAddress;
+				Address tempAddress = null;
 				while (cs.next()){
-					statement = dataCon.createStatement();
-					ResultSet as =  statement.executeQuery("SELECT * FROM Address WHERE address_ID =" + cs.getInt("address_ID"));
-					tempAddress = new Address(as.getString("streetno"), as.getString("city"), as.getString("state"), as.getString("postalcode"));
+					Statement newSt2 = dataCon.createStatement();
+					ResultSet as =  newSt2.executeQuery("SELECT * FROM Address WHERE address_ID =" + cs.getInt("address_ID"));
+					while (as.next()) {
+						tempAddress = new Address(as.getString("streetno"), as.getString("city"), as.getString("state"), as.getString("postalcode"));
+					}
 					tempComp = new Company(cs.getString("name"), tempAddress, cs.getString("email"), null);
 				}
 				IndustrialItem tempItem = new IndustrialItem(IndustrialItem.Type.valueOf(rs.getString("type")), rs.getString("name"), rs.getString("description"),
