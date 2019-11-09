@@ -2,6 +2,9 @@ package ca.ctc2019.backend;
 
 import com.vaadin.flow.component.login.AbstractLogin;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 //Class to emulate login control
 public class LoginController {
     enum AccountType {
@@ -12,10 +15,12 @@ public class LoginController {
     private static LoginController instance;
     private AccountType accountType;
     private Boolean loggedIn;
+    private Account account;
 
     private LoginController() {
         accountType = null;
         loggedIn = false;
+        account = null;
     }
 
 //    create login
@@ -26,16 +31,21 @@ public class LoginController {
         return instance;
     }
 
-    public Boolean loginUser(AbstractLogin.LoginEvent e) {
-//        TODO actually login
+    public Boolean loginUser(AbstractLogin.LoginEvent e) throws SQLException {
         accountType = AccountType.COMPANY;
-        loggedIn = true;
-         return true;
+        ResultSet response = DatabaseController.getInstance().authenticateAccount(e.getUsername(), e.getPassword());
+        if (response != null) {
+            account = new Account(response.getInt("account_ID"), response.getString("type"), e.getUsername(), e.getPassword());
+            loggedIn = true;
+        }
+        else loggedIn = false;
+        return loggedIn;
     }
 
     public void logOut() {
         accountType = null;
         loggedIn = false;
+        account = null;
     }
     public AccountType getAccountType() {
         return accountType;
