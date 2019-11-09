@@ -21,8 +21,7 @@ public class LoginController {
     }
 
 //    create login
-    public static LoginController getInstance()
-    {
+    public static LoginController getInstance() {
         if (instance == null)
             instance = new LoginController();
         return instance;
