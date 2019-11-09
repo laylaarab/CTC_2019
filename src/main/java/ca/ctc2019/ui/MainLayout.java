@@ -132,15 +132,21 @@ public class MainLayout extends FlexBoxLayout
 
 		if(loginController.isLoggedIn()) {
 			menu.addNaviItem(VaadinIcon.HOME, "Home", Home.class);
-			menu.addNaviItem(VaadinIcon.CHART_GRID, "Item List", ListedItems.class);
-			menu.addNaviItem(VaadinIcon.INSTITUTION, "Accounts", Accounts.class);
-			menu.addNaviItem(VaadinIcon.CREDIT_CARD, "Payments", Payments.class);
-			menu.addNaviItem(VaadinIcon.CHART, "Statistics", Statistics.class);
 
-			NaviItem personnel = menu.addNaviItem(VaadinIcon.USERS, "Personnel",
-					null);
-			menu.addNaviItem(personnel, "Accountants", Accountants.class);
-			menu.addNaviItem(personnel, "Managers", Managers.class);
+			if(loginController.getAccountType().equals("company")) {
+				menu.addNaviItem(VaadinIcon.CHART_GRID, "Item List", ListedItems.class);
+				menu.addNaviItem(VaadinIcon.INSTITUTION, "Accounts", Accounts.class);
+				menu.addNaviItem(VaadinIcon.CREDIT_CARD, "Payments", Payments.class);
+				menu.addNaviItem(VaadinIcon.CHART, "Statistics", Statistics.class);
+				NaviItem personnel = menu.addNaviItem(VaadinIcon.USERS, "Companies",
+						null);
+				menu.addNaviItem(personnel, "Accountants", Accountants.class);
+				menu.addNaviItem(personnel, "Managers", Managers.class);
+			} else if(loginController.getAccountType().equals("person")) {
+
+			}
+
+
 		} else {
 			menu.addNaviItem(VaadinIcon.INSTITUTION, "Login", Login.class);
 		}
