@@ -281,7 +281,7 @@ public class UIUtils {
 
 	public static String formatAddress(Address address) {
 		return address.getStreet() + "\n" + address.getCity() + ", "
-				+ address.getCity() + " " + address.getZip();
+				+ address.getCity() + " " + address.getPostalCode();
 	}
 
 	public static Button createFloatingActionButton(VaadinIcon icon) {

@@ -26,7 +26,7 @@ public class Item {
 	}
 
 	public Item(Category category, String name, String desc, String vendor,
-	            double price, int stock, int sold) {
+				double price, int stock, int sold) {
 		this.category = category;
 		this.name = name;
 		this.desc = desc;

@@ -4,14 +4,14 @@ public class Address {
 
 	private final String street;
 	private final String city;
-	private final String state;
-	private final String zip;
+	private final String province;
+	private final String postalCode;
 
-	public Address(String street, String city, String state, String zip) {
+	public Address(String street, String city, String province, String postalCode) {
 		this.street = street;
 		this.city = city;
-		this.state = state;
-		this.zip = zip;
+		this.province = province;
+		this.postalCode = postalCode;
 	}
 
 	public String getStreet() {
@@ -22,12 +22,12 @@ public class Address {
 		return city;
 	}
 
-	public String getState() {
-		return state;
+	public String getProvince() {
+		return province;
 	}
 
-	public String getZip() {
-		return zip;
+	public String getPostalCode() {
+		return postalCode;
 	}
 
 }

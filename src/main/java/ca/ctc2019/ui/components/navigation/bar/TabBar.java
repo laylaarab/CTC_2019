@@ -1,5 +1,6 @@
 package ca.ctc2019.ui.components.navigation.bar;
 
+import ca.ctc2019.backend.LoginController;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.button.Button;
@@ -31,33 +32,41 @@ public class TabBar extends FlexBoxLayout {
 
 	public TabBar() {
 		setClassName(CLASS_NAME);
+		LoginController loginController = LoginController.getInstance();
+		if(loginController.isLoggedIn()) {
+			menuIcon = UIUtils.createTertiaryInlineButton(VaadinIcon.MENU);
+			menuIcon.addClassName(CLASS_NAME + "__navi-icon");
+			menuIcon.addClickListener(e -> MainLayout.get().getNaviDrawer().toggle());
 
-		menuIcon = UIUtils.createTertiaryInlineButton(VaadinIcon.MENU);
-		menuIcon.addClassName(CLASS_NAME + "__navi-icon");
-		menuIcon.addClickListener(e -> MainLayout.get().getNaviDrawer().toggle());
+			avatar = new Image();
+			avatar.setClassName(CLASS_NAME + "__avatar");
+			avatar.setSrc(IMG_PATH + "avatar.png");
 
-		avatar = new Image();
-		avatar.setClassName(CLASS_NAME + "__avatar");
-		avatar.setSrc(IMG_PATH + "avatar.png");
+			ContextMenu contextMenu = new ContextMenu(avatar);
+			contextMenu.setOpenOnClick(true);
 
-		ContextMenu contextMenu = new ContextMenu(avatar);
-		contextMenu.setOpenOnClick(true);
-		contextMenu.addItem("Settings",
-				e -> Notification.show("Not implemented yet.", 3000,
-						Notification.Position.BOTTOM_CENTER));
-		contextMenu.addItem("Log Out",
-				e -> Notification.show("Not implemented yet.", 3000,
-						Notification.Position.BOTTOM_CENTER));
 
-		addTab = UIUtils.createSmallButton(VaadinIcon.PLUS);
-		addTab.addClickListener(e -> tabs
-				.setSelectedTab(addClosableTab("New Tab", Home.class)));
-		addTab.setClassName(CLASS_NAME + "__add-tab");
+			contextMenu.addItem("Settings",
+					e -> Notification.show("Not implemented yet.", 3000,
+							Notification.Position.BOTTOM_CENTER));
+			contextMenu.addItem("Log Out",
+					e -> {
+				loginController.logOut();
+				Notification.show("Logged out", 3000, Notification.Position.BOTTOM_CENTER);
+				contextMenu.getUI().ifPresent(ui -> ui.navigate(Home.class));
+			});
 
-		tabs = new NaviTabs();
-		tabs.setClassName(CLASS_NAME + "__tabs");
 
-		add(menuIcon, tabs, addTab, avatar);
+			addTab = UIUtils.createSmallButton(VaadinIcon.PLUS);
+			addTab.addClickListener(e -> tabs
+					.setSelectedTab(addClosableTab("New Tab", Home.class)));
+			addTab.setClassName(CLASS_NAME + "__add-tab");
+
+			tabs = new NaviTabs();
+			tabs.setClassName(CLASS_NAME + "__tabs");
+
+			add(menuIcon, tabs, addTab, avatar);
+		}
 	}
 
 	/* === MENU ICON === */
