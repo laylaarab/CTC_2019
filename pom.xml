@@ -57,6 +57,10 @@
                 <scope>import</scope>
                 <version>${vaadin.version}</version>
             </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
