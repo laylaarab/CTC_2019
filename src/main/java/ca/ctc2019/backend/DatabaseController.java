@@ -43,7 +43,34 @@ public class DatabaseController {
 		return temp;
 	}
 
-	protected synchronized void addItem (Account temp){
+	public synchronized ArrayList<IndustrialItem> itemListFromDataBase (){
+		ArrayList<IndustrialItem> temp = new ArrayList<IndustrialItem>();
+		try {
+			statement = dataCon.createStatement();
+			ResultSet rs =  statement.executeQuery("SELECT * FROM Item");
+			while (rs.next()){
+				statement = dataCon.createStatement();
+				ResultSet cs =  statement.executeQuery("SELECT * FROM Company WHERE company_ID =" + rs.getInt("company_ID"));
+				Company tempComp = null;
+				Address tempAddress;
+				while (cs.next()){
+					statement = dataCon.createStatement();
+					ResultSet as =  statement.executeQuery("SELECT * FROM Address WHERE address_ID =" + cs.getInt("address_ID"));
+					tempAddress = new Address(as.getString("streetno"), as.getString("city"), as.getString("state"), as.getString("postalcode"));
+					tempComp = new Company(cs.getString("name"), tempAddress, cs.getString("email"), null);
+				}
+				IndustrialItem tempItem = new IndustrialItem(IndustrialItem.Type.valueOf(rs.getString("type")), rs.getString("name"), rs.getString("description"),
+						tempComp, rs.getDouble("price"), rs.getInt("quantity"), IndustrialItem.Status.valueOf(rs.getString("status")));
+				temp.add(tempItem);
+			}
+		}catch (java.sql.SQLException e){
+			System.err.println("Error while trying to get the list of items from the server");
+			e.printStackTrace();
+		}
+		return temp;
+	}
+
+	protected synchronized void addAccount (Account temp){
 		try {
 			String overrideQuerry = "SELECT * FROM account WHERE account_ID =" + temp.getId();
 			statement = dataCon.createStatement();
