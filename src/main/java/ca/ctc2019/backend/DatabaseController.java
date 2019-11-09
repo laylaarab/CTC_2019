@@ -36,7 +36,7 @@ public class DatabaseController {
 						rs.getString("password"));
 				temp.add(tempItem);
 			}
-		}catch (java.sql.SQLException e){
+		} catch (java.sql.SQLException e){
 			System.err.println("Error while trying to get the list of items from the server");
 			e.printStackTrace();
 		}
@@ -91,7 +91,6 @@ public class DatabaseController {
 			System.err.println("Error adding items into the database");
 			e.printStackTrace();
 		}
-
 	}
 
 	/**
@@ -130,12 +129,14 @@ public class DatabaseController {
 	}
 
 	protected Account authenticateAccount(String username, String password) {
-		String query = "SELECT * FROM ACCOUNT WHERE ACCOUNT.username = ? AND ACCOUNT.password = ?";
+		String query = "SELECT * FROM Account WHERE Account.username = ? AND Account.password = ?";
 		try {
 			PreparedStatement pStat = dataCon.prepareStatement(query);
 			pStat.setString(1, username);
 			pStat.setString(2, password);
 			ResultSet result = pStat.executeQuery();
+			result.beforeFirst();
+			result.next();
 			return new Account(result.getInt("account_ID"), result.getString("type"), result.getString("username"), result.getString("password"));
 		} catch (SQLException e) {
 			e.printStackTrace();
