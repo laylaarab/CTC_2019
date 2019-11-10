@@ -3,7 +3,9 @@ package ca.ctc2019.ui.views;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.html.Anchor;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.dom.Style;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import ca.ctc2019.ui.MainLayout;
@@ -25,11 +27,11 @@ public class Home extends ViewFrame {
 	}
 
 	private Component createContent() {
-		Html intro = new Html("<h2>ScrapCylce</h2>");
+		Html intro = new Html("<h2>Scrap Cycle</h2>");
 
-		Html productivity = new Html("<p>Please navigate to a page to proceed.</p>");
-
-		Html features = new Html("<p>Thanks</p>");
+		Html header = new Html("<h3>Trade, track and target industrial waste material</h3>");
+		Html body = new Html("<h5>ScrapCycle connects Canadians to give a new life to an array of existing materials raising financial, ecological and environmental impact.</h5>");
+		Image image = new Image("images/background.jpg", "Back");
 
 //		Anchor documentation = new Anchor("https://vaadin.com/docs/business-app/overview.html", UIUtils.createButton("Read the documentation", VaadinIcon.EXTERNAL_LINK));
 //		Anchor starter = new Anchor("https://vaadin.com/start/latest/business-app", UIUtils.createButton("Start a new project with Business App", VaadinIcon.EXTERNAL_LINK));
@@ -38,7 +40,8 @@ public class Home extends ViewFrame {
 //		links.setFlexWrap(FlexWrap.WRAP);
 //		links.setSpacing(Right.S);
 
-		FlexBoxLayout content = new FlexBoxLayout(intro, productivity, features);
+		FlexBoxLayout content = new FlexBoxLayout(intro, header, body, image);
+//		content.getStyle().set("background", "url(images/background.jpg)");
 		content.setFlexDirection(FlexDirection.COLUMN);
 		content.setMargin(Horizontal.AUTO);
 		content.setMaxWidth("840px");
