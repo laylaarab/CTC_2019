@@ -5,3 +5,6 @@ node_modules
 webpack.generated.js
 
 !.idea
+.idea/workspace.xml
+.idea/compiler.xml
+.idea/workspace.xml
