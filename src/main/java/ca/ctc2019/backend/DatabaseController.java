@@ -55,13 +55,13 @@ public class DatabaseController {
 		return temp;
 	}
 
-	public synchronized void addAccount (Account temp){
+	public synchronized void updateAccount (Account temp){
 		try {
 			String overrideQuerry = "SELECT * FROM account WHERE username =" + temp.getUsername();
 			statement = dataCon.createStatement();
 			resultSet = statement.executeQuery(overrideQuerry);
 			if (resultSet.next()) {
-				String updateQuerry = "UPDATE account SET type = ?, username = ?, password = ? WHERE username = ? ";
+				String updateQuerry = "UPDATE account SET accounttype = ?, username = ?, password = ? WHERE username = ? ";
 				PreparedStatement pStat = dataCon.prepareStatement(updateQuerry);
 				pStat.setString(1, temp.getType());
 				pStat.setString(2, temp.getUsername());

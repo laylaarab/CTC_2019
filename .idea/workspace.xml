@@ -4,9 +4,6 @@
     <list default="true" id="90de89e2-2912-4317-81d3-2635e710e1b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/DatabaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/DatabaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/IndustrialItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/IndustrialItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/company/ListedItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/company/ListedItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/person/SearchItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/person/SearchItems.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,7 +21,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/DatabaseController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="135" column="46" lean-forward="true" selection-start-line="135" selection-start-column="46" selection-end-line="135" selection-end-column="46" />
+              <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/IndustrialItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1678">
+            <state relative-caret-position="1174">
               <caret line="123" column="23" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
               <folding>
                 <element signature="e#605#606#0" expanded="true" />
@@ -180,6 +177,7 @@
     <findStrings>
       <find>Item</find>
       <find>name</find>
+      <find>type</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -209,9 +207,9 @@
         <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/Statistics.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/Company.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/IndustrialItem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/DatabaseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/company/ListedItems.java" />
         <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/ui/views/person/SearchItems.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/DatabaseController.java" />
       </list>
     </option>
   </component>
@@ -332,7 +330,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573348074609" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573348590292" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -449,11 +447,18 @@
       <option name="project" value="LOCAL" />
       <updated>1573347382309</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Updated controller for URLs.">
+      <created>1573348197862</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1573348197862</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23276000" />
+    <option name="totallyTimeSpent" value="23880000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -510,7 +515,8 @@
     <MESSAGE value="Modified Database Queries to match updated tables" />
     <MESSAGE value="Adding item into Database works." />
     <MESSAGE value="Can find company id from account" />
-    <option name="LAST_COMMIT_MESSAGE" value="Can find company id from account" />
+    <MESSAGE value="Updated controller for URLs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated controller for URLs." />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -826,7 +832,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/IndustrialItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1678">
+        <state relative-caret-position="1174">
           <caret line="123" column="23" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
           <folding>
             <element signature="e#605#606#0" expanded="true" />
@@ -874,7 +880,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/ctc2019/backend/DatabaseController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="135" column="46" lean-forward="true" selection-start-line="135" selection-start-column="46" selection-end-line="135" selection-end-column="46" />
+          <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
