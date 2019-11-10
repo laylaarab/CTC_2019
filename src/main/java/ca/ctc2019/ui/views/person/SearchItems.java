@@ -1,6 +1,7 @@
 package ca.ctc2019.ui.views.person;
 
 import ca.ctc2019.backend.Company;
+import ca.ctc2019.backend.DatabaseController;
 import ca.ctc2019.backend.IndustrialItem;
 import ca.ctc2019.ui.MainLayout;
 import ca.ctc2019.ui.components.Badge;
@@ -76,23 +77,25 @@ public class SearchItems extends ViewFrame {
 		Html title = new Html("<h2>" + item.getName() + "</h2>");
 		Html desc = new Html("<p>" + item.getDesc() + "</p>");
 		Html contact = new Html("<a href=\"mailto:"+ item.getCompany().getEmail() + "\">Contact owner</a>");
-//		Image image = new Image(item.get);
+		Html lineB = new Html("<br />");
+		Image image;
+		if (item.getUrl() != null) {
+			image = new Image(item.getUrl(), "alt");
+
+		} else {
+			image = new Image("images/1.jpg", "alt");
+
+		}
 		Button close = new Button("Close");
 		close.addClickListener(e->{
 			dialog.close();
 		});
-		dialog.add(title, desc, contact, close);
+		dialog.add(title, desc, image, lineB,  contact, close);
 		return dialog;
 	}
 
 	private Grid createListOfItemsView() {
-		itemList = new LinkedList<>();
-		Company company = new Company ("C1", "S1", "City", "AB", "PC", "email@email.ca", 1, "COMPANY","bob","vance");
-		itemList.add(new IndustrialItem(IndustrialItem.Type.WOOD, "Item 1", "This is the first item. Wood", company, 122,2, IndustrialItem.Status.AVAILABLE, ""));
-		itemList.add(new IndustrialItem(IndustrialItem.Type.METAL, "Item 2", "This is the first item. Metal", company, 12,2, IndustrialItem.Status.SOLD, ""));
-		itemList.add(new IndustrialItem(IndustrialItem.Type.PAPER, "Item 3", "This is the first item. Paper", company, 122,200, IndustrialItem.Status.CONDSALE, ""));
-		itemList.add(new IndustrialItem(IndustrialItem.Type.OTHER, "Item 4", "This is the first item. Other", company, 13,2010, IndustrialItem.Status.AVAILABLE, ""));
-
+		itemList = DatabaseController.getInstance().itemListFromDataBase();
 		gridItems = new Grid<>(IndustrialItem.class);
 		gridItems.setItems(itemList);
 
