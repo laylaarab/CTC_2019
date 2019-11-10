@@ -42,7 +42,7 @@ public class DatabaseController {
 					while (as.next()) {
 						tempAddress = new Address(as.getString("streetno"), as.getString("city"), as.getString("state"), as.getString("postalcode"));
 					}
-					tempComp = new Company(cs.getString("name"), tempAddress, cs.getString("email"), null);
+					tempComp = new Company(cs.getString("companyname"), tempAddress, cs.getString("email"), null);
 				}
 				IndustrialItem tempItem = new IndustrialItem(IndustrialItem.Type.valueOf(rs.getString("type")), rs.getString("name"), rs.getString("description"),
 						tempComp, rs.getDouble("price"), rs.getInt("quantity"), IndustrialItem.Status.valueOf(rs.getString("status")));
@@ -79,7 +79,7 @@ public class DatabaseController {
 
 	public synchronized void insertAccount(Account temp){
 		try {
-			String insertQuery = "INSERT INTO Account (type, username, password) VALUES (?,?,?)";
+			String insertQuery = "INSERT INTO Account (accounttype, username, password) VALUES (?,?,?)";
 			PreparedStatement pStat = dataCon.prepareStatement(insertQuery);
 			pStat.setString(1, temp.getType());
 			pStat.setString(2, temp.getUsername());
@@ -95,7 +95,7 @@ public class DatabaseController {
 	public synchronized int findCompanyId(Company temp){
 		try {
 			statement = dataCon.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM Company WHERE name =" + temp.getName());
+			ResultSet rs = statement.executeQuery("SELECT * FROM Company WHERE companyname =" + temp.getName());
 			while (rs.next()) {
 				return rs.getInt("company_ID");
 			}
@@ -109,7 +109,7 @@ public class DatabaseController {
 
 	public synchronized void insertItem(IndustrialItem temp){
 		try {
-			String insertQuery = "INSERT INTO Item (type, quantity, company_ID, description, price, name, status) VALUES (?,?,?,?,?,?,?)";
+			String insertQuery = "INSERT INTO Item (type, quantity, company_ID, description, price, itemname, status) VALUES (?,?,?,?,?,?,?)";
 			PreparedStatement pStat = dataCon.prepareStatement(insertQuery);
 			pStat.setString(1, temp.getType().getName());
 			pStat.setInt(2, temp.getQuantity());
@@ -146,7 +146,7 @@ public class DatabaseController {
 			ResultSet result = pStat.executeQuery();
 			result.beforeFirst();
 			result.next();
-			return new Account(result.getString("type"), result.getString("username"), result.getString("password"));
+			return new Account(result.getString("accounttype"), result.getString("username"), result.getString("password"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
