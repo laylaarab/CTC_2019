@@ -1,6 +1,6 @@
 package ca.ctc2019.ui.views.company;
 
-import ca.ctc2019.backend.Company;
+import ca.ctc2019.backend.DatabaseController;
 import ca.ctc2019.backend.IndustrialItem;
 import ca.ctc2019.ui.MainLayout;
 import ca.ctc2019.ui.components.Badge;
@@ -22,13 +22,16 @@ import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.data.binder.BinderValidationStatus;
+import com.vaadin.flow.data.binder.BindingValidationStatus;
 import com.vaadin.flow.data.converter.StringToIntegerConverter;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @CssImport("./styles/views/statistics.css")
 @PageTitle("Listed Items")
@@ -92,7 +95,6 @@ public class ListedItems extends ViewFrame {
 		qtyField.setLabel("Quantity");
 //		addItemForm.addFormItem(qtyField, "");
 		qtyField.setPlaceholder("100");
-
 		Select<String> selectType = new Select<>();
 		selectType.setLabel("Type");
 //		addItemForm.addFormItem(selectType, "");
@@ -125,28 +127,29 @@ public class ListedItems extends ViewFrame {
 
 		Button submitButton = new Button("Submit");
 		submitButton.addClickListener(e -> {
-			binder.writeBeanIfValid(item);
-			Notification.show("Not implemented yet");
-			dialog.close();
-			
+			if (binder.writeBeanIfValid(item)) {
+				Notification.show("Item saved.");
+				dialog.close();
+				DatabaseController.getInstance().insertItem(item);
+			} else {
+				BinderValidationStatus<IndustrialItem> validate = binder.validate();
+				String errorText = validate.getFieldValidationStatuses()
+						.stream().filter(BindingValidationStatus::isError)
+						.map(BindingValidationStatus::getMessage)
+						.map(Optional::get).distinct()
+						.collect(Collectors.joining(", "));
+				Notification.show("There are errors" + errorText + ". ");
+			}
 		});
-
 		addItemForm.add(itemNameField, descriptionField, priceField, qtyField, selectType, selectAvailability, closeButton, submitButton);
 		dialog.add(addItemForm);
 		return dialog;
 	}
 
 	private Grid createListOfItemsView() {
-		List<IndustrialItem> itemList = new LinkedList<>();
-		Company company = new Company ("C1", "S1", "City", "AB", "PC", "email@email.ca", 1, "COMPANY","bob","vance");
-		itemList.add(new IndustrialItem(IndustrialItem.Type.WOOD, "Item 1", "This is the first item. Wood", company, 122,2, IndustrialItem.Status.AVAILABLE));
-		itemList.add(new IndustrialItem(IndustrialItem.Type.METAL, "Item 2", "This is the first item. Metal", company, 12,2, IndustrialItem.Status.SOLD));
-		itemList.add(new IndustrialItem(IndustrialItem.Type.PAPER, "Item 3", "This is the first item. Paper", company, 122,200, IndustrialItem.Status.CONDSALE));
-		itemList.add(new IndustrialItem(IndustrialItem.Type.OTHER, "Item 4", "This is the first item. Other", company, 13,2010, IndustrialItem.Status.AVAILABLE));
-
+		List<IndustrialItem> itemList = DatabaseController.getInstance().itemListFromDataBase();
 		Grid<IndustrialItem> gridItems = new Grid<>(IndustrialItem.class);
 		gridItems.setItems(itemList);
-
 
 		ComponentRenderer<Badge, IndustrialItem> badgeRendererStatus = new ComponentRenderer<>(
 				item -> {

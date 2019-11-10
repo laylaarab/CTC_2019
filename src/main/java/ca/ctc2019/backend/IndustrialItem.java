@@ -26,7 +26,13 @@ public class IndustrialItem {
 	}
 
 	public IndustrialItem() {
-
+        this.type = Type.METAL;
+        this.name = name;
+        this.desc = desc;
+        this.price = price;
+        this.company = new Company("", new Address("", "", "", ""), "", new Account("", "", ""));
+        this.quantity = 0;
+        this.status = Status.SOLD;
 	}
 
 	public enum Status {
@@ -79,7 +85,7 @@ public class IndustrialItem {
 	}
 
 	public int getQuantity() {
-		return quantity;
+    		return quantity;
 	}
 
 	public Status getStatus() {
@@ -99,6 +105,7 @@ public class IndustrialItem {
 	}
 
 	public void setType(String type) {
+        type = type.toUpperCase();
 		this.type = Enum.valueOf(Type.class, type);
 	}
 

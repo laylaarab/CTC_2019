@@ -49,4 +49,7 @@ public class LoginController {
         return loggedIn;
     }
 
+    public Account getAccount() {
+        return account;
+    }
 }
