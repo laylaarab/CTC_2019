@@ -91,19 +91,29 @@ public class DatabaseController {
 		}
 	}
 
-	public synchronized int findCompanyId(Account temp){
+	public synchronized Company findCompany(Account temp){
 		try {
 			statement = dataCon.createStatement();
 			ResultSet rs = statement.executeQuery("SELECT * FROM Account WHERE username ='" + temp.getUsername()+ "'");
 			while (rs.next()) {
-				return rs.getInt("company_ID");
+				Statement newSt = dataCon.createStatement();
+				ResultSet cs =  newSt.executeQuery("SELECT * FROM Company WHERE company_ID =" + rs.getInt("company_ID"));
+				while (cs.next()) {
+					Address tempAddress = null;
+					Statement newSt2 = dataCon.createStatement();
+					ResultSet as = newSt2.executeQuery("SELECT * FROM Address WHERE address_ID =" + cs.getInt("address_ID"));
+					while (as.next()) {
+						tempAddress = new Address(as.getString("streetno"), as.getString("city"), as.getString("state"), as.getString("postalcode"));
+					}
+					return new Company(cs.getString("companyname"), tempAddress, cs.getString("email"), null);
+				}
 			}
 		}
 		catch(java.sql.SQLException e){
 			System.err.println("Error finding the Company ID");
 			e.printStackTrace();
 		}
-		return -1;
+		return null;
 	}
 
 
