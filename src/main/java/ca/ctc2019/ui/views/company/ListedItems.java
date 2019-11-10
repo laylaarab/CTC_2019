@@ -2,22 +2,14 @@ package ca.ctc2019.ui.views.company;
 
 import ca.ctc2019.backend.Company;
 import ca.ctc2019.backend.IndustrialItem;
-import ca.ctc2019.backend.Payment;
 import ca.ctc2019.ui.MainLayout;
 import ca.ctc2019.ui.components.Badge;
 import ca.ctc2019.ui.components.FlexBoxLayout;
-import ca.ctc2019.ui.components.ListItem;
-import ca.ctc2019.ui.layout.size.Right;
-import ca.ctc2019.ui.layout.size.Vertical;
-import ca.ctc2019.ui.util.FontSize;
-import ca.ctc2019.ui.util.UIUtils;
 import ca.ctc2019.ui.util.css.FlexDirection;
-import ca.ctc2019.ui.util.css.Position;
 import ca.ctc2019.ui.util.css.lumo.BadgeColor;
 import ca.ctc2019.ui.views.ViewFrame;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.charts.model.Dial;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
@@ -29,6 +21,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.data.converter.StringToIntegerConverter;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -63,8 +57,6 @@ public class ListedItems extends ViewFrame {
 		addItemLayout.setAlignItems(FlexComponent.Alignment.END);
 
 
-
-
 		FlexBoxLayout content = new FlexBoxLayout(addItemLayout, listOfItemsView);
 		content.setAlignItems(FlexComponent.Alignment.CENTER);
 		content.setFlexDirection(FlexDirection.COLUMN);
@@ -83,28 +75,48 @@ public class ListedItems extends ViewFrame {
 
 		TextField itemNameField = new TextField();
 		itemNameField.setLabel("Item");
+//		addItemForm.addFormItem(itemNameField, "");
 		itemNameField.setPlaceholder("Item 1");
 
 		TextField descriptionField = new TextField();
 		descriptionField.setLabel("Description");
+//		addItemForm.addFormItem(descriptionField, "");
 		descriptionField.setPlaceholder("Description");
 
 		NumberField priceField = new NumberField();
 		priceField.setLabel("Price");
+//		addItemForm.addFormItem(priceField, "");
 		priceField.setPlaceholder("100");
 
-		NumberField qtyField = new NumberField();
+		TextField qtyField = new TextField();
 		qtyField.setLabel("Quantity");
+//		addItemForm.addFormItem(qtyField, "");
 		qtyField.setPlaceholder("100");
 
 		Select<String> selectType = new Select<>();
 		selectType.setLabel("Type");
+//		addItemForm.addFormItem(selectType, "");
 		selectType.setItems("Wood", "Metal", "Paper", "Other");
 
 		Select<String> selectAvailability = new Select<>();
 		selectAvailability.setLabel("Status");
+//		addItemForm.addFormItem(selectAvailability, "");
 		selectAvailability.setItems("Available", "Cond-Sale", "Available");
 
+		Binder<IndustrialItem> binder = new Binder<>();
+
+		IndustrialItem item = new IndustrialItem();
+		binder.forField(itemNameField)
+				.bind(IndustrialItem::getName, IndustrialItem::setName);
+		binder.forField(descriptionField)
+				.bind(IndustrialItem::getDesc, IndustrialItem::setDesc);
+		binder.forField(priceField)
+				.bind(IndustrialItem::getPrice, IndustrialItem::setPrice);
+		binder.forField(qtyField)
+				.withConverter(new StringToIntegerConverter("must be integer"))
+				.bind(IndustrialItem::getQuantity, IndustrialItem::setQuantity);
+		binder.forField(selectType)
+				.bind(IndustrialItem::getTypeStr, IndustrialItem::setType);
 
 		Button closeButton = new Button("Close");
 		closeButton.addClickListener(e -> {
@@ -113,9 +125,10 @@ public class ListedItems extends ViewFrame {
 
 		Button submitButton = new Button("Submit");
 		submitButton.addClickListener(e -> {
+			binder.writeBeanIfValid(item);
 			Notification.show("Not implemented yet");
-//			TODO add item
 			dialog.close();
+			
 		});
 
 		addItemForm.add(itemNameField, descriptionField, priceField, qtyField, selectType, selectAvailability, closeButton, submitButton);

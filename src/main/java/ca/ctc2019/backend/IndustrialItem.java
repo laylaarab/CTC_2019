@@ -25,6 +25,10 @@ public class IndustrialItem {
 		}
 	}
 
+	public IndustrialItem() {
+
+	}
+
 	public enum Status {
 		SOLD("Sold"), CONDITIONALSALE("Cond-Sale"), AVAILABLE("Available");
 
@@ -54,6 +58,10 @@ public class IndustrialItem {
 		return type;
 	}
 
+	public String getTypeStr() {
+		return type.toString();
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -78,4 +86,32 @@ public class IndustrialItem {
 		return status;
 	}
 
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public void setType(String type) {
+		this.type = Enum.valueOf(Type.class, type);
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
 }
+
