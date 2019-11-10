@@ -11,7 +11,7 @@ public class Company {
 		this.name = name;
 		this.address = new Address(street, city, province, postalCode);
 		this.email = email;
-		this.account = new Account (id, type, username, password);
+		this.account = new Account (type, username, password);
 	}
 
 	public Company (String name, Address address, String email, Account account){

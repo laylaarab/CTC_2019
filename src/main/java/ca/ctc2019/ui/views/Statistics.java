@@ -47,9 +47,7 @@ public class Statistics extends ViewFrame {
 				"TEST");
 		buttonTest.addClickListener(e -> {
 					ArrayList<IndustrialItem> test = DatabaseController.getInstance().itemListFromDataBase();
-					for(IndustrialItem i: test){
-						Notification.show(i.getName());
-					}
+					DatabaseController.getInstance().insertItem(test.get(0));
 		}
 		);
 		Component payments = createPayments();

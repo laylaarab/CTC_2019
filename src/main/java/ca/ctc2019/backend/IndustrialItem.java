@@ -30,7 +30,7 @@ public class IndustrialItem {
 	}
 
 	public enum Status {
-		SOLD("Sold"), CONDITIONALSALE("Cond-Sale"), AVAILABLE("Available");
+		SOLD("Sold"), CONDSALE("Conditional Sale"), AVAILABLE("Available");
 
 		private String name;
 

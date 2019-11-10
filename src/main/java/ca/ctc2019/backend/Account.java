@@ -2,21 +2,15 @@ package ca.ctc2019.backend;
 
 public class Account {
 
-	private final int id;
-	private final String type;
-	private final String username;
-	private final String password;
+	private String type;
+	private String username;
+	private String password;
 
 
-	public Account (int id, String type, String username, String password) {
-		this.id = id;
+	public Account (String type, String username, String password) {
 		this.type = type;
 		this.username = username;
 		this.password = password;
-	}
-
-	public int getId(){
-		return id;
 	}
 
 	public String getUsername(){

@@ -120,7 +120,7 @@ public class SearchItems extends ViewFrame {
 		Company company = new Company ("C1", "S1", "City", "AB", "PC", "email@email.ca", 1, "COMPANY","bob","vance");
 		itemList.add(new IndustrialItem(IndustrialItem.Type.WOOD, "Item 1", "This is the first item. Wood", company, 122,2, IndustrialItem.Status.AVAILABLE));
 		itemList.add(new IndustrialItem(IndustrialItem.Type.METAL, "Item 2", "This is the first item. Metal", company, 12,2, IndustrialItem.Status.SOLD));
-		itemList.add(new IndustrialItem(IndustrialItem.Type.PAPER, "Item 3", "This is the first item. Paper", company, 122,200, IndustrialItem.Status.CONDITIONALSALE));
+		itemList.add(new IndustrialItem(IndustrialItem.Type.PAPER, "Item 3", "This is the first item. Paper", company, 122,200, IndustrialItem.Status.CONDSALE));
 		itemList.add(new IndustrialItem(IndustrialItem.Type.OTHER, "Item 4", "This is the first item. Other", company, 13,2010, IndustrialItem.Status.AVAILABLE));
 
 		Grid<IndustrialItem> gridItems = new Grid<>(IndustrialItem.class);
@@ -138,7 +138,7 @@ public class SearchItems extends ViewFrame {
 						case AVAILABLE:
 							badge = new Badge(status.getName(), BadgeColor.SUCCESS);
 							break;
-						case CONDITIONALSALE:
+						case CONDSALE:
 							badge = new Badge(status.getName(), BadgeColor.NORMAL);
 							break;
 						default:

@@ -2,10 +2,10 @@ package ca.ctc2019.backend;
 
 public class Address {
 
-	private final String street;
-	private final String city;
-	private final String province;
-	private final String postalCode;
+	private String street;
+	private String city;
+	private String province;
+	private String postalCode;
 
 	public Address(String street, String city, String province, String postalCode) {
 		this.street = street;
