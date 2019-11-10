@@ -9,6 +9,7 @@ public class IndustrialItem {
 	private int quantity;
 	private Type type;
 	private Status status;
+	private String url;
 
 	public enum Type {
 		WOOD("Wood"), METAL("Metal"), PAPER(
@@ -23,6 +24,10 @@ public class IndustrialItem {
 		public String getName() {
 			return name;
 		}
+	}
+
+	public IndustrialItem() {
+
 	}
 
 	public enum Status {
@@ -40,7 +45,7 @@ public class IndustrialItem {
 	}
 
 	public IndustrialItem(Type type, String name, String desc, Company company,
-				double price, int quantity, Status status) {
+				double price, int quantity, Status status, String url) {
 		this.type = type;
 		this.name = name;
 		this.desc = desc;
@@ -48,10 +53,15 @@ public class IndustrialItem {
 		this.company = company;
 		this.quantity = quantity;
 		this.status = status;
+		this.url = url;
 	}
 
 	public Type getType() {
 		return type;
+	}
+
+	public String getTypeStr() {
+		return type.toString();
 	}
 
 	public String getName() {
@@ -78,4 +88,40 @@ public class IndustrialItem {
 		return status;
 	}
 
+	public String getUrl(){
+		return url;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public void setType(String type) {
+		this.type = Enum.valueOf(Type.class, type);
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setUrl(String url){
+		this.url = url;
+	}
 }
+
