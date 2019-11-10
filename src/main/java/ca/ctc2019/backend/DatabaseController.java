@@ -45,7 +45,7 @@ public class DatabaseController {
 					tempComp = new Company(cs.getString("companyname"), tempAddress, cs.getString("email"), null);
 				}
 				IndustrialItem tempItem = new IndustrialItem(IndustrialItem.Type.valueOf(rs.getString("type")), rs.getString("itemname"), rs.getString("description"),
-						tempComp, rs.getDouble("price"), rs.getInt("quantity"), IndustrialItem.Status.valueOf(rs.getString("status")));
+						tempComp, rs.getDouble("price"), rs.getInt("quantity"), IndustrialItem.Status.valueOf(rs.getString("status")), rs.getString("url"));
 				temp.add(tempItem);
 			}
 		}catch (java.sql.SQLException e){
@@ -55,13 +55,13 @@ public class DatabaseController {
 		return temp;
 	}
 
-	public synchronized void addAccount (Account temp){
+	public synchronized void updateAccount (Account temp){
 		try {
 			String overrideQuerry = "SELECT * FROM account WHERE username =" + temp.getUsername();
 			statement = dataCon.createStatement();
 			resultSet = statement.executeQuery(overrideQuerry);
 			if (resultSet.next()) {
-				String updateQuerry = "UPDATE account SET type = ?, username = ?, password = ? WHERE username = ? ";
+				String updateQuerry = "UPDATE account SET accounttype = ?, username = ?, password = ? WHERE username = ? ";
 				PreparedStatement pStat = dataCon.prepareStatement(updateQuerry);
 				pStat.setString(1, temp.getType());
 				pStat.setString(2, temp.getUsername());
@@ -91,6 +91,21 @@ public class DatabaseController {
 		}
 	}
 
+	public synchronized int findCompanyId(Account temp){
+		try {
+			statement = dataCon.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT * FROM Account WHERE username ='" + temp.getUsername()+ "'");
+			while (rs.next()) {
+				return rs.getInt("company_ID");
+			}
+		}
+		catch(java.sql.SQLException e){
+			System.err.println("Error finding the Company ID");
+			e.printStackTrace();
+		}
+		return -1;
+	}
+
 
 	public synchronized int findCompanyId(Company temp){
 		try {
@@ -109,7 +124,7 @@ public class DatabaseController {
 
 	public synchronized void insertItem(IndustrialItem temp){
 		try {
-			String insertQuery = "INSERT INTO Item (type, quantity, company_ID, description, price, itemname, status) VALUES (?,?,?,?,?,?,?)";
+			String insertQuery = "INSERT INTO Item (type, quantity, company_ID, description, price, itemname, status, url) VALUES (?,?,?,?,?,?,?,?)";
 			PreparedStatement pStat = dataCon.prepareStatement(insertQuery);
 			pStat.setString(1, temp.getType().toString());
 			pStat.setInt(2, temp.getQuantity());
@@ -118,6 +133,7 @@ public class DatabaseController {
 			pStat.setDouble(5, temp.getPrice());
 			pStat.setString(6, temp.getName());
 			pStat.setString(7, temp.getStatus().toString());
+			pStat.setString(8, temp.getUrl());
 			pStat.executeUpdate();
 		}catch (java.sql.SQLException e){
 			System.err.println("Error inserting an item to the table");
