@@ -2,6 +2,7 @@ package ca.ctc2019.ui.views.company;
 
 import ca.ctc2019.backend.DatabaseController;
 import ca.ctc2019.backend.IndustrialItem;
+import ca.ctc2019.backend.LoginController;
 import ca.ctc2019.ui.MainLayout;
 import ca.ctc2019.ui.components.Badge;
 import ca.ctc2019.ui.components.FlexBoxLayout;
@@ -130,6 +131,7 @@ public class ListedItems extends ViewFrame {
 			if (binder.writeBeanIfValid(item)) {
 				Notification.show("Item saved.");
 				dialog.close();
+				DatabaseController.getInstance().findCompany(LoginController.getInstance().getAccount());
 				DatabaseController.getInstance().insertItem(item);
 			} else {
 				BinderValidationStatus<IndustrialItem> validate = binder.validate();
