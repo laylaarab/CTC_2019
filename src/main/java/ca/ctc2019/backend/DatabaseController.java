@@ -44,7 +44,7 @@ public class DatabaseController {
 					}
 					tempComp = new Company(cs.getString("companyname"), tempAddress, cs.getString("email"), null);
 				}
-				IndustrialItem tempItem = new IndustrialItem(IndustrialItem.Type.valueOf(rs.getString("type")), rs.getString("name"), rs.getString("description"),
+				IndustrialItem tempItem = new IndustrialItem(IndustrialItem.Type.valueOf(rs.getString("type")), rs.getString("itemname"), rs.getString("description"),
 						tempComp, rs.getDouble("price"), rs.getInt("quantity"), IndustrialItem.Status.valueOf(rs.getString("status")));
 				temp.add(tempItem);
 			}
@@ -95,7 +95,7 @@ public class DatabaseController {
 	public synchronized int findCompanyId(Company temp){
 		try {
 			statement = dataCon.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM Company WHERE companyname =" + temp.getName());
+			ResultSet rs = statement.executeQuery("SELECT * FROM Company WHERE companyname ='" + temp.getName()+ "'");
 			while (rs.next()) {
 				return rs.getInt("company_ID");
 			}
@@ -111,13 +111,13 @@ public class DatabaseController {
 		try {
 			String insertQuery = "INSERT INTO Item (type, quantity, company_ID, description, price, itemname, status) VALUES (?,?,?,?,?,?,?)";
 			PreparedStatement pStat = dataCon.prepareStatement(insertQuery);
-			pStat.setString(1, temp.getType().getName());
+			pStat.setString(1, temp.getType().toString());
 			pStat.setInt(2, temp.getQuantity());
 			pStat.setInt(3, findCompanyId(temp.getCompany()));
 			pStat.setString(4, temp.getDesc());
 			pStat.setDouble(5, temp.getPrice());
 			pStat.setString(6, temp.getName());
-			pStat.setString(7, temp.getStatus().getName());
+			pStat.setString(7, temp.getStatus().toString());
 			pStat.executeUpdate();
 		}catch (java.sql.SQLException e){
 			System.err.println("Error inserting an item to the table");
