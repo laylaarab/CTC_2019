@@ -91,6 +91,21 @@ public class DatabaseController {
 		}
 	}
 
+	public synchronized int findCompanyId(Account temp){
+		try {
+			statement = dataCon.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT * FROM Account WHERE username ='" + temp.getUsername()+ "'");
+			while (rs.next()) {
+				return rs.getInt("company_ID");
+			}
+		}
+		catch(java.sql.SQLException e){
+			System.err.println("Error finding the Company ID");
+			e.printStackTrace();
+		}
+		return -1;
+	}
+
 
 	public synchronized int findCompanyId(Company temp){
 		try {
