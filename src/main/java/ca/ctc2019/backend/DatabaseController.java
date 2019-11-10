@@ -26,37 +26,22 @@ public class DatabaseController {
 		return instance;
 	}
 
-	public synchronized ArrayList<Account> accountListFromDataBase (){
-		ArrayList<Account> temp = new ArrayList<Account>();
-		try {
-			statement = dataCon.createStatement();
-			ResultSet rs =  statement.executeQuery("SELECT * FROM Account");
-			while (rs.next()){
-				Account tempItem = new Account(rs.getInt("account_ID"), rs.getString("type"), rs.getString("username"),
-						rs.getString("password"));
-				temp.add(tempItem);
-			}
-		} catch (java.sql.SQLException e){
-			System.err.println("Error while trying to get the list of items from the server");
-			e.printStackTrace();
-		}
-		return temp;
-	}
-
 	public synchronized ArrayList<IndustrialItem> itemListFromDataBase (){
 		ArrayList<IndustrialItem> temp = new ArrayList<IndustrialItem>();
 		try {
 			statement = dataCon.createStatement();
 			ResultSet rs =  statement.executeQuery("SELECT * FROM Item");
 			while (rs.next()){
-				statement = dataCon.createStatement();
-				ResultSet cs =  statement.executeQuery("SELECT * FROM Company WHERE company_ID =" + rs.getInt("company_ID"));
+				Statement newSt = dataCon.createStatement();
+				ResultSet cs =  newSt.executeQuery("SELECT * FROM Company WHERE company_ID =" + rs.getInt("company_ID"));
 				Company tempComp = null;
-				Address tempAddress;
+				Address tempAddress = null;
 				while (cs.next()){
-					statement = dataCon.createStatement();
-					ResultSet as =  statement.executeQuery("SELECT * FROM Address WHERE address_ID =" + cs.getInt("address_ID"));
-					tempAddress = new Address(as.getString("streetno"), as.getString("city"), as.getString("state"), as.getString("postalcode"));
+					Statement newSt2 = dataCon.createStatement();
+					ResultSet as =  newSt2.executeQuery("SELECT * FROM Address WHERE address_ID =" + cs.getInt("address_ID"));
+					while (as.next()) {
+						tempAddress = new Address(as.getString("streetno"), as.getString("city"), as.getString("state"), as.getString("postalcode"));
+					}
 					tempComp = new Company(cs.getString("name"), tempAddress, cs.getString("email"), null);
 				}
 				IndustrialItem tempItem = new IndustrialItem(IndustrialItem.Type.valueOf(rs.getString("type")), rs.getString("name"), rs.getString("description"),
@@ -70,18 +55,17 @@ public class DatabaseController {
 		return temp;
 	}
 
-	protected synchronized void addAccount (Account temp){
+	public synchronized void addAccount (Account temp){
 		try {
-			String overrideQuerry = "SELECT * FROM account WHERE account_ID =" + temp.getId();
+			String overrideQuerry = "SELECT * FROM account WHERE username =" + temp.getUsername();
 			statement = dataCon.createStatement();
 			resultSet = statement.executeQuery(overrideQuerry);
 			if (resultSet.next()) {
-				String updateQuerry = "UPDATE account SET account_ID = ?, type = ?, username = ?, password = ? WHERE account_ID = ? ";
+				String updateQuerry = "UPDATE account SET type = ?, username = ?, password = ? WHERE username = ? ";
 				PreparedStatement pStat = dataCon.prepareStatement(updateQuerry);
-				pStat.setInt(1, temp.getId());
-				pStat.setString(2, temp.getType());
-				pStat.setString(3, temp.getUsername());     //The description of the GIVEN item
-				pStat.setString(4, temp.getPassword());    //The quantity of the GIVEN item
+				pStat.setString(1, temp.getType());
+				pStat.setString(2, temp.getUsername());
+				pStat.setString(3, temp.getPassword());
 				pStat.executeUpdate();
 			} else {
 				insertAccount(temp);
@@ -93,18 +77,13 @@ public class DatabaseController {
 		}
 	}
 
-	/**
-	 * Inserts an item to the database.
-	 * @param temp the item to insert.
-	 */
-	private synchronized void insertAccount(Account temp ){
+	public synchronized void insertAccount(Account temp){
 		try {
-			String insertQuery = "INSERT items (account_ID, type, username, password) VALUES (?,?,?,?)";
+			String insertQuery = "INSERT INTO Account (type, username, password) VALUES (?,?,?)";
 			PreparedStatement pStat = dataCon.prepareStatement(insertQuery);
-			pStat.setInt(1, temp.getId());
-			pStat.setString(2, temp.getType());
-			pStat.setString(3, temp.getUsername());
-			pStat.setString(4, temp.getPassword());
+			pStat.setString(1, temp.getType());
+			pStat.setString(2, temp.getUsername());
+			pStat.setString(3, temp.getPassword());
 			pStat.executeUpdate();
 		}catch (java.sql.SQLException e){
 			System.err.println("Error inserting an item to the table");
@@ -112,15 +91,45 @@ public class DatabaseController {
 		}
 	}
 
-	/**
-	 * Removes an item from the database.
-	 * @param item item to be removed.
-	 */
-	protected  synchronized void removeAccount (Account item){
+
+	public synchronized int findCompanyId(Company temp){
 		try {
-			String querry = "DELETE FROM account WHERE id = ?";
+			statement = dataCon.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT * FROM Company WHERE name =" + temp.getName());
+			while (rs.next()) {
+				return rs.getInt("company_ID");
+			}
+		}
+		catch(java.sql.SQLException e){
+			System.err.println("Error finding the Company ID");
+			e.printStackTrace();
+		}
+		return -1;
+	}
+
+	public synchronized void insertItem(IndustrialItem temp){
+		try {
+			String insertQuery = "INSERT INTO Item (type, quantity, company_ID, description, price, name, status) VALUES (?,?,?,?,?,?,?)";
+			PreparedStatement pStat = dataCon.prepareStatement(insertQuery);
+			pStat.setString(1, temp.getType().getName());
+			pStat.setInt(2, temp.getQuantity());
+			pStat.setInt(3, findCompanyId(temp.getCompany()));
+			pStat.setString(4, temp.getDesc());
+			pStat.setDouble(5, temp.getPrice());
+			pStat.setString(6, temp.getName());
+			pStat.setString(7, temp.getStatus().getName());
+			pStat.executeUpdate();
+		}catch (java.sql.SQLException e){
+			System.err.println("Error inserting an item to the table");
+			e.printStackTrace();
+		}
+	}
+
+	public synchronized void removeAccount (Account temp){
+		try {
+			String querry = "DELETE FROM account WHERE username = ?";
 			PreparedStatement pStat = dataCon.prepareStatement(querry);
-			pStat.setInt(1, item.getId());
+			pStat.setString(1, temp.getUsername());
 			pStat.execute();
 		}catch (java.sql.SQLException e){
 			System.err.println("Error removing an item from the database, Already removed?");
@@ -137,7 +146,7 @@ public class DatabaseController {
 			ResultSet result = pStat.executeQuery();
 			result.beforeFirst();
 			result.next();
-			return new Account(result.getInt("account_ID"), result.getString("type"), result.getString("username"), result.getString("password"));
+			return new Account(result.getString("type"), result.getString("username"), result.getString("password"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
